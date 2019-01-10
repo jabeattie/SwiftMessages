@@ -58,12 +58,12 @@ public class TopBottomAnimation: NSObject, Animator {
                 view.transform = CGAffineTransform(translationX: 0, y: view.frame.maxY + view.frame.height)
             }
         }, completion: { completed in
-            #if SWIFTMESSAGES_APP_EXTENSIONS
+//            #if SWIFTMESSAGES_APP_EXTENSIONS
             completion(completed)
-            #else
-            // Fix #131 by always completing if application isn't active.
-            completion(completed || UIApplication.shared.applicationState != .active)
-            #endif
+//            #else
+//            // Fix #131 by always completing if application isn't active.
+//            completion(completed || UIApplication.shared.applicationState != .active)
+//            #endif
         })
     }
 
@@ -152,11 +152,11 @@ public class TopBottomAnimation: NSObject, Animator {
             view.transform = .identity
         }, completion: { completed in
             // Fix #131 by always completing if application isn't active.
-            #if SWIFTMESSAGES_APP_EXTENSIONS
+//            #if SWIFTMESSAGES_APP_EXTENSIONS
             completion(completed)
-            #else
-            completion(completed || UIApplication.shared.applicationState != .active)
-            #endif
+//            #else
+//            completion(completed || UIApplication.shared.applicationState != .active)
+//            #endif
         })
     }
 
